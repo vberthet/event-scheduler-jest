@@ -1,6 +1,6 @@
-import {Event} from "./models"
+import Event from "./models"
 
-export class EventSerializer {
+export default class EventSerializer {
     /**
      *
      * @param {Event| Event[]} event

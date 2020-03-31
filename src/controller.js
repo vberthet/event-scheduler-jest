@@ -1,8 +1,8 @@
-import {EventService} from "./services";
-import {EventSerializer} from "./serializer";
+import EventService from "./services";
+import EventSerializer from "./serializer";
 import express from 'express';
 
-export class EventController {
+export default class EventController {
     /**
      * @type {EventService}
      */
@@ -21,9 +21,8 @@ export class EventController {
      *
      * @param {Request} req
      * @param res
-     * @param next
      */
-    getAll(req, res, next){
+    getAll(req, res){
         let events = this.eventService.getEvents();
         res.send(this.eventSerializer.serialize(events))
     }
@@ -32,9 +31,8 @@ export class EventController {
      *
      * @param {Request} req
      * @param res
-     * @param next
      */
-    getFirst(req, res, next){
+    getFirst(req, res){
         let event = this.eventService.getFirstEvent();
         res.send(this.eventSerializer.serialize(event))
     }
@@ -43,9 +41,8 @@ export class EventController {
      *
      * @param {Request} req
      * @param res
-     * @param next
      */
-    getLast(req, res, next){
+    getLast(req, res){
         let event = this.eventService.getLastEvent();
         res.send(this.eventSerializer.serialize(event))
     }
@@ -54,21 +51,20 @@ export class EventController {
      *
      * @param {Request} req
      * @param res
-     * @param next
      */
-    getLongest(req, res, next){
-        //TODO
-        res.send("{}");
+    getLongest(req, res){
+        let event = this.eventService.getLongestEvent();
+        res.send(this.eventSerializer.serialize(event))
     }
 
     /**
      *
      * @param {Request} req
      * @param res
-     * @param next
      */
-    getShortest(req, res, next){
-        res.send("{}");
+    getShortest(req, res){
+        let event = this.eventService.getShortestEvent();
+        res.send(this.eventSerializer.serialize(event))
     }
 
 }

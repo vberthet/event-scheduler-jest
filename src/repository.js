@@ -1,9 +1,9 @@
-import { Event } from "./models"
+import Event from "./models"
 
 /**
  * The event repository is responsible of events storage from database
  */
-export class EventRepository {
+export default class EventRepository {
 
     _dbDriver;
 
@@ -32,9 +32,9 @@ export class EventRepository {
 export class InMemoryEventRepository extends EventRepository{
     _events;
 
-    constructor() {
+    constructor(events) {
         super(null);
-        this._events = [];
+        this._events = events;
     }
 
 

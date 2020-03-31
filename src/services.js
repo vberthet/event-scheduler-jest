@@ -1,8 +1,8 @@
 
-import {EventRepository} from "./repository";
-import {Event} from "./models";
+import EventRepository from "./repository";
+import Event from "./models";
 
-export class EventService {
+export default class EventService {
 
     /**
      * The event repository
@@ -23,7 +23,7 @@ export class EventService {
      * @return {Event[]}
      */
     getEvents() {
-        return []
+        return this._eventRepository.getAll();
     }
 
     /**

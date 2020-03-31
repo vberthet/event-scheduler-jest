@@ -1,7 +1,7 @@
 /**
  * Describe an event
  */
-export class Event {
+export default class Event {
 
     /**
      * Event starting time
